@@ -13,20 +13,33 @@ const App = () => {
         // side effect in a component, you want to think about which state and/or props it should
         // sync up with, if any.
     const [api, setApi] = useState([])
-        useEffect(() => {
-            axios.get("https://swapi.co/api/people/")
+    const [next, setNext] = useState(["https://swapi.co/api/people/"])
+          useEffect(() => {
+            axios.get(next)
                 .then(response => {
-                    console.log(response)
                     setApi(response.data.results)
                 })
                 .catch(error => {
                     console.log(error)
                 })
+               
         }, [])
-
+        axios.get('https://swapi.co/api/people/')
+        .then(response1 => {
+         console.log(response1)
+         setNext(response1.data.next)
+        })
+        .catch(error => {
+         console.log(error)
+     }) 
+             
         return ( <div className = "App">
                 <h1 className = "Header"> React Wars </h1>
                 <hr></hr>
+                <ButtonGroup>
+                    <Button onClick={() => setNext()}>Previouse Page</Button>
+                    <Button onClick={() => setNext()}>Next Page</Button>
+                </ButtonGroup>
                 <div className="AllCards"> 
                 {api.map((person, index) => {
                     return ( < PersonCard key = { index }

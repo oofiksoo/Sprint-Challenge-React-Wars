@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
 import PersonCard from "./components/PersonCard";
-import { Button, ButtonGroup } from 'reactstrap';
+import { Button, ButtonGroup, Jumbotron } from 'reactstrap';
 
 
 const App = () => {
@@ -13,48 +14,54 @@ const App = () => {
         // side effect in a component, you want to think about which state and/or props it should
         // sync up with, if any.
     const [api, setApi] = useState([])
-    const [next, setNext] = useState(["https://swapi.co/api/people/"])
+    const [url, setUrl] = useState(["https://swapi.co/api/people/"])
+    const [next, setNext] = useState("")
+    const [prev, setPrev] = useState("")
           useEffect(() => {
-            axios.get(next)
+            axios.get(url)
                 .then(response => {
                     setApi(response.data.results)
-                })
+                    setNext(response.data.next)
+                    setPrev(response.data.prev)
+                    })
                 .catch(error => {
                     console.log(error)
                 })
                
         }, [])
-      {//  axios.get('https://swapi.co/api/people/')
-       // .then(response1 => {
-       //  console.log(response1)
-       //  setNext(response1.data.next)
-       // })
-       // .catch(error => {
-       //  console.log(error)
-     //})
-    }  
-             
+                    
         return ( <div className = "App">
-                <h1 className = "Header"> React Wars </h1>
+                <h1 className = "Header"> Lambda School Intro to React challange:</h1>
+                <Jumbotron>
+                    <h1>React Wars</h1>
+                    <p>In this challange, I have consumed data provided by the "Star Wars" API. Below you will
+                        see a consumed objected, with a .map over the people array. Each person's data is presented 
+                        as a brief "Card". Additional details can be found by following the button on each "Card".
+                    </p>
+                    <p><Button variant="primary" href="https://swapi.co/api/">API Specification</Button></p>
+                </Jumbotron>
                 <hr></hr>
                 <ButtonGroup>
-                    <Button onClick={() => setNext()}>Previouse Page</Button>
-                    <Button onClick={() => setNext()}>Next Page</Button>
+                    <Button onClick={() => setUrl({next})}>Previouse Page</Button>
+                    <Button onClick={() => setUrl({prev})}>Next Page</Button>
                 </ButtonGroup>
                 <div className="AllCards"> 
+                
                 {api.map((person, index) => {
-                    return ( < PersonCard key = { index }
+                    return ( 
+                            < PersonCard key = { index }
                                 name = { person.name }
                                 gender = { person.gender }
                                 birth = { person.birth_year }
-                                world = { person.homeworld }
-                                /> 
+                                url = { person.url }
+                                />
+                                 
                                 );}
                             )
                     } </div> </div>
                     );           
                }
-
+               
 
 
 export default App;

@@ -33,12 +33,16 @@ const App = () => {
         return ( <div className = "App">
                 <h1 className = "Header"> Lambda School Intro to React challange:</h1>
                 <Jumbotron>
+                    <div className="bord">
+                    <div className="jmbo">
                     <h1>React Wars</h1>
                     <p>In this challange, I have consumed data provided by the "Star Wars" API. Below you will
                         see a consumed objected, with a .map over the people array. Each person's data is presented 
                         as a brief "Card". Additional details can be found by following the button on each "Card".
                     </p>
                     <p><Button variant="primary" href="https://swapi.co/api/">API Specification</Button></p>
+                </div>
+                </div>
                 </Jumbotron>
                 <hr></hr>
                 <ButtonGroup>

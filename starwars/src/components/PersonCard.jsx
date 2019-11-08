@@ -7,12 +7,14 @@ const PersonCard = props => {
        
         <div className="CardCont">
         <Card key={props.index} >
-        <CardBody >
+        <CardBody>
+            <div className="cardBody">
           <CardTitle><h1>{props.name}</h1></CardTitle>
           <CardText>{props.birth}</CardText>
           <CardSubtitle><p>{props.gender}</p></CardSubtitle>
           
           <Button variant="primary" href={props.url}>More Info!</Button>
+          </div>
           </CardBody>
       </Card>
       </div>

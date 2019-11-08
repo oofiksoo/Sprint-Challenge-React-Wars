@@ -1,9 +1,37 @@
 .CardCont {
-    background-color: whitesmoke;
+    background-color: rgba(250, 234, 4, 0.664);
     border: 1px solid black;
     border-radius: 20px;
     margin: 2%;
     padding: 2%;
+}
+
+.bord {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.jmbo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60vw;
+    text-align: center;
+    background-color: rgba(250, 234, 4, 0.664);
+    border-radius: 20px;
+    padding: 2%;
+}
+
+.cardBody {
+    background-color: silver;
+    padding: 2%;
+    margin: 1%;
+    height: 22vh;
+    width: 30vw;
 }
 
 .AllCards {

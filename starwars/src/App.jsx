@@ -24,14 +24,15 @@ const App = () => {
                 })
                
         }, [])
-        axios.get('https://swapi.co/api/people/')
-        .then(response1 => {
-         console.log(response1)
-         setNext(response1.data.next)
-        })
-        .catch(error => {
-         console.log(error)
-     }) 
+      {//  axios.get('https://swapi.co/api/people/')
+       // .then(response1 => {
+       //  console.log(response1)
+       //  setNext(response1.data.next)
+       // })
+       // .catch(error => {
+       //  console.log(error)
+     //})
+    }  
              
         return ( <div className = "App">
                 <h1 className = "Header"> React Wars </h1>

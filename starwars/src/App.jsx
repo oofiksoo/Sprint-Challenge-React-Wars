@@ -25,17 +25,20 @@ const App = () => {
         }, [])
 
         return ( <div className = "App">
-                <h1 className = "Header"> React Wars </h1> 
+                <h1 className = "Header"> React Wars </h1>
+                <div className="AllCards"> 
                 {api.map((person, index) => {
                     return ( < PersonCard key = { index }
                                 name = { person.name }
                                 gender = { person.gender }
                                 birth = { person.birth_year }
                                 world = { person.homeworld }
-                                /> );
-                            })
-                    } </div>);
-                }
+                                /> 
+                                );}
+                            )
+                    } </div> </div>
+                    );           
+               }
 
 
 

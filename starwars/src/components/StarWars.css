@@ -1,0 +1,17 @@
+.CardCont {
+    background-color: whitesmoke;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin: 2%;
+}
+
+.AllCards {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2%
+}
+
+.CardBody {
+    margin: 2%;
+    padding: 2%;
+}

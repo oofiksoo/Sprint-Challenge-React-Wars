@@ -26,6 +26,7 @@ const App = () => {
 
         return ( <div className = "App">
                 <h1 className = "Header"> React Wars </h1>
+                <hr></hr>
                 <div className="AllCards"> 
                 {api.map((person, index) => {
                     return ( < PersonCard key = { index }
